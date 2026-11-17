@@ -19,6 +19,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Mohammad Haghjoo",
+  "image": "https://mhmmdhaghjoo.github.io/assets/img/mohammad-haghjoo.jpg",
   "jobTitle": "Working student candidate, data analytics",
   "address": {"@type": "PostalAddress", "addressLocality": "Nürnberg", "addressRegion": "Bayern", "addressCountry": "DE"},
   "alumniOf": ["Friedrich-Alexander-Universität Erlangen-Nürnberg", "Allameh Tabataba'i University", "Islamic Azad University, Central Tehran Branch"],
@@ -80,6 +81,7 @@ a:hover { text-decoration-thickness: 2px; }
 .hero .role { font: 500 clamp(20px, 2.2vw, 26px)/1.35 var(--display); letter-spacing: -.01em; margin: 0 0 20px; max-width: 30ch; }
 .hero .intro { color: var(--muted); max-width: 54ch; margin: 0 0 32px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.portrait { width: 168px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; margin-bottom: 28px; }
 .facts { margin: 0; padding: 0; border-top: 1px solid var(--ink); }
 .facts div { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
 .facts dt { color: var(--muted); }
@@ -87,11 +89,11 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* Load-in: one moment, on the hero only */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1, .hero .role, .hero .intro, .hero .actions, .facts { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero h1, .hero .role, .hero .intro, .hero .actions, .aside { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
   .hero .role { animation-delay: .08s; }
   .hero .intro { animation-delay: .16s; }
   .hero .actions { animation-delay: .24s; }
-  .facts { animation-delay: .32s; }
+  .aside { animation-delay: .32s; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 }
 
@@ -176,6 +178,7 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
   body { font-size: 16px; }
   .wrap { padding: 0 20px; }
   .facts div { grid-template-columns: 96px 1fr; }
+  .portrait { width: 132px; }
   .query { font-size: 12.5px; padding: 22px 20px; }
 }
 @media print {
@@ -213,12 +216,15 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
           <a class="btn" href="https://github.com/mhmmdhaghjoo">GitHub</a>
         </div>
       </div>
+      <div class="aside">
+        <img class="portrait" src="assets/img/mohammad-haghjoo.jpg" alt="Portrait of Mohammad Haghjoo" width="600" height="750">
       <dl class="facts">
         <div><dt>Available</dt><dd>From December 2026, up to 20 hours per week</dd></div>
         <div><dt>Based in</dt><dd>Nürnberg, open to Erlangen, Munich and hybrid work</dd></div>
         <div><dt>Works with</dt><dd>SQL, PostgreSQL, Python, R</dd></div>
         <div><dt>Languages</dt><dd>English C1, German A2, Persian native</dd></div>
       </dl>
+      </div>
     </div>
   </section>
 
