@@ -315,41 +315,6 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
           <figcaption>Predicted and observed churn per risk decile on the test period.</figcaption>
         </figure>
       </article>
-
-      <article class="project">
-        <div>
-          <p class="stack">LLM tool in Python: SQLite, OpenAI and Anthropic APIs</p>
-          <h3>Can a manager ask the database a question in plain English?</h3>
-          <p class="answer">Yes, if the model's SQL is treated as untrusted. A language model writes the query; the code around it checks it, runs it read-only and measures how often the answer is right.</p>
-          <ul>
-            <li>Schema and example rows in the prompt, so the model sees how values are actually spelled</li>
-            <li>Two safety layers: a static check that allows only one read-only query, and a read-only connection</li>
-            <li>Evaluation set of 20 questions with reference queries, compared by result rather than by SQL text</li>
-          </ul>
-          <div class="links">
-            <a href="https://github.com/mhmmdhaghjoo/text-to-sql-assistant">Code on GitHub</a>
-          </div>
-        </div>
-        <figure>
-          <div class="query" role="img" aria-label="Example question from the evaluation set with its reference SQL query">
-            <p class="q"><span>Question from the evaluation set</span>Which product has the highest net revenue in each category?</p>
-<pre><span class="kw">SELECT</span> category, product_name
-<span class="kw">FROM</span> (
-  <span class="kw">SELECT</span> p.category, p.product_name,
-         <span class="fn">RANK</span>() <span class="kw">OVER</span> (
-           <span class="kw">PARTITION BY</span> p.category
-           <span class="kw">ORDER BY</span> <span class="fn">SUM</span>(oi.quantity * oi.unit_price
-                        * (1 - oi.discount_pct)) <span class="kw">DESC</span>
-         ) <span class="kw">AS</span> rnk
-  <span class="kw">FROM</span> order_items oi
-  <span class="kw">JOIN</span> products p <span class="kw">ON</span> p.product_id = oi.product_id
-  <span class="kw">GROUP BY</span> p.category, p.product_id, p.product_name
-)
-<span class="kw">WHERE</span> rnk = 1</pre>
-          </div>
-          <figcaption>Reference query for one of the six hard questions. The model's answer counts as correct when it returns the same rows.</figcaption>
-        </figure>
-      </article>
     </div>
   </section>
 
@@ -434,12 +399,12 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
         <p>Every skill listed here is used in at least one project above or in my professional work.</p>
       </div>
       <dl class="skills">
-        <div><dt>Languages and querying</dt><dd>SQL (PostgreSQL, SQLite), Python (pandas, NumPy, SciPy, scikit-learn), R (tidyverse, ggplot2, rstanarm)</dd></div>
+        <div><dt>Languages and querying</dt><dd>SQL (PostgreSQL), Python (pandas, NumPy, SciPy, scikit-learn), R (tidyverse, ggplot2, rstanarm)</dd></div>
         <div><dt>Data management</dt><dd>Data modelling, star schema, ETL, data-quality checks, indexing and query optimisation</dd></div>
         <div><dt>Statistics</dt><dd>Hypothesis testing, A/B testing and experiment design, regression including Bayesian, survival analysis</dd></div>
         <div><dt>Machine learning</dt><dd>Classification, clustering, out-of-time evaluation, fairness audits</dd></div>
         <div><dt>Reporting</dt><dd>Management reports, data visualisation (Matplotlib, Seaborn, Plotly, ggplot2), R Markdown, SQL reporting</dd></div>
-        <div><dt>Engineering and AI</dt><dd>Git, GitHub Actions, pytest, testthat; prompt engineering, text-to-SQL, evaluating LLM output</dd></div>
+        <div><dt>Engineering</dt><dd>Git, GitHub Actions, pytest, testthat</dd></div>
       </dl>
       <p class="languages"><strong>Languages:</strong> Persian (native), English (C1, IELTS Academic 7.5), German (A2, improving), Turkish (intermediate).</p>
     </div>

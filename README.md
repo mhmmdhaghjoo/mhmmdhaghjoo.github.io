@@ -8,4 +8,3 @@ One static HTML page, no build step. The charts come from the project repositori
 - [Checkout A/B Test (R)](https://github.com/mhmmdhaghjoo/checkout-ab-test-r)
 - [Online Retail SQL Warehouse](https://github.com/mhmmdhaghjoo/online-retail-sql-warehouse)
 - [Customer Churn ML Pipeline](https://github.com/mhmmdhaghjoo/customer-churn-ml-pipeline)
-- [Text-to-SQL Assistant](https://github.com/mhmmdhaghjoo/text-to-sql-assistant)
