@@ -139,6 +139,7 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 .timeline li { position: relative; padding: 22px 0 22px 28px; border-left: 1px solid var(--rule); }
 .timeline li::before { content: ""; position: absolute; left: -5px; top: 30px; width: 9px; height: 9px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
 .timeline li:first-child::before { background: var(--accent); }
+.timeline.single { grid-template-columns: minmax(0, 1fr); max-width: 860px; }
 .when { font-size: 14px; color: var(--muted); }
 .timeline h4 { font: 600 18px/1.3 var(--display); letter-spacing: -.01em; margin: 4px 0 2px; }
 .where { margin: 0 0 8px; font-size: 15px; }
@@ -194,11 +195,12 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
   <div class="wrap">
     <a class="brand" href="#top">Mohammad Haghjoo</a>
     <nav class="nav" aria-label="Main">
+      <a href="#top">Home</a>
       <a href="#work">Projects</a>
-      <a href="#approach">Approach</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a class="btn" href="Mohammad_Haghjoo_CV.pdf">CV (PDF)</a>
+      <a href="#education">Education &amp; Selected Courses</a>
+      <a href="Mohammad_Haghjoo_CV.pdf">CV</a>
+      <a class="btn" href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -208,8 +210,8 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
     <div class="wrap hero-grid">
       <div>
         <h1 id="name">Mohammad Haghjoo</h1>
-        <p class="role">Data analytics working student who starts from the business question and ends with a decision.</p>
-        <p class="intro">M.Sc. student in International Information Systems at FAU Erlangen-Nürnberg. Five years of professional work with PostgreSQL databases, SQL reporting and data integration, an MBA, and project work in Python, R and SQL.</p>
+        <p class="role">Business data science for marketing and people analytics: from the business question to a decision someone can act on.</p>
+        <p class="intro">M.Sc. student in International Information Systems at FAU Erlangen-Nürnberg. I build reproducible statistical models and machine learning in Python, R and SQL and turn the results into decision apps in Streamlit and Shiny. Five years of professional work with databases, SQL reporting and data integration, and an MBA.</p>
         <div class="actions">
           <a class="btn primary" href="Mohammad_Haghjoo_CV.pdf">Download CV (PDF)</a>
           <a class="btn" href="https://www.linkedin.com/in/mohammad-haghjoo-b241823b0">LinkedIn</a>
@@ -221,7 +223,7 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
       <dl class="facts">
         <div><dt>Available</dt><dd>From December 2026, up to 20 hours per week</dd></div>
         <div><dt>Based in</dt><dd>Nürnberg, open to Erlangen, Munich and hybrid work</dd></div>
-        <div><dt>Works with</dt><dd>SQL, PostgreSQL, Python, R</dd></div>
+        <div><dt>Works with</dt><dd>Python, R, SQL, Streamlit, Shiny</dd></div>
         <div><dt>Languages</dt><dd>English C1, German A2, Persian native</dd></div>
       </dl>
       </div>
@@ -237,16 +239,18 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 
       <article class="project">
         <div>
-          <p class="stack">People analytics in Python: pandas, scikit-learn, survival analysis</p>
+          <p class="stack">People analytics in Python: pandas, scikit-learn, survival analysis, Streamlit</p>
           <h3>Who resigns, and can a risk list find them in time?</h3>
           <p class="answer">Resignations cluster in the first two years and in one department, which loses 2.5&nbsp;% of staff a year against 0.5&nbsp;% elsewhere. A gradient boosting model tested on unseen years ranks leavers with ROC AUC 0.93.</p>
           <ul>
             <li>Ten years of HR records for 6,284 employees, with retirements, layoffs and resignations treated as separate processes</li>
             <li>Discrete-time survival analysis and models validated on later years, not a random split</li>
             <li>Fairness audit: a simple tenure rule finds 100&nbsp;% of the men who resign but only 44&nbsp;% of the women</li>
+            <li>Streamlit explorer for cohort survival, resignation rates by group and the fairness of a risk list, at group level only</li>
           </ul>
           <div class="links">
             <a href="https://github.com/mhmmdhaghjoo/employee-turnover-analytics">Code and report on GitHub</a>
+            <a href="https://github.com/mhmmdhaghjoo/employee-turnover-analytics#explorer-app-streamlit">Explorer app</a>
           </div>
         </div>
         <figure>
@@ -257,17 +261,19 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 
       <article class="project">
         <div>
-          <p class="stack">Experiment in R: tidyverse, ggplot2, rstanarm, R Markdown</p>
+          <p class="stack">Marketing experiment in R: tidyverse, ggplot2, rstanarm, R Markdown, Shiny</p>
           <h3>Should the shop switch to a one-page checkout?</h3>
-          <p class="answer">Yes on mobile, test again on desktop. Conversion rose by 0.51 points (95&nbsp;% interval 0.27 to 0.75), almost all of it from mobile, worth about €45,000&nbsp;a month.</p>
+          <p class="answer">Yes on mobile, test again on desktop. Conversion rose by 0.51 points (95&nbsp;% interval 0.27 to 0.75), almost all of it from mobile, worth about €45,000&nbsp;a month in the simulation.</p>
           <ul>
             <li>Power analysis before the data, sample ratio check, and average order value as a guardrail</li>
             <li>Frequentist and Bayesian estimates, with segment effects from a Bayesian logistic regression</li>
             <li>Simulation showing that checking results daily raises false winners from 5&nbsp;% to 22&nbsp;%</li>
+            <li>Shiny app to plan the test, read a simulated run against the known true effect, and see the cost of peeking</li>
           </ul>
           <div class="links">
             <a href="https://github.com/mhmmdhaghjoo/checkout-ab-test-r">Code on GitHub</a>
             <a href="https://github.com/mhmmdhaghjoo/checkout-ab-test-r/blob/main/reports/report.md">Decision memo</a>
+            <a href="https://github.com/mhmmdhaghjoo/checkout-ab-test-r#interactive-app-shiny">Shiny app</a>
           </div>
         </div>
         <figure>
@@ -278,13 +284,13 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 
       <article class="project">
         <div>
-          <p class="stack">Data warehouse in PostgreSQL, with Python for loading and charts</p>
+          <p class="stack">Customer analytics warehouse in PostgreSQL, with Python for loading and charts</p>
           <h3>Which customers come back, and which ones carry the revenue?</h3>
           <p class="answer">19&nbsp;% of customers order again in the month after their first order and 11&nbsp;% are still active after a year. The best customer segment is 24&nbsp;% of customers and 54&nbsp;% of revenue.</p>
           <ul>
             <li>Raw exports staged and checked with 12 data-quality rules before a star schema is loaded</li>
             <li>Reporting views for monthly KPIs, cohort retention, RFM segments and product ranking</li>
-            <li>Eight SQL tests that reconcile rows and revenue and stop the build on any mismatch</li>
+            <li>Ten SQL tests that reconcile rows and revenue, enforce one row per order and stop the build on any mismatch</li>
           </ul>
           <div class="links">
             <a href="https://github.com/mhmmdhaghjoo/online-retail-sql-warehouse">Code on GitHub</a>
@@ -298,16 +304,18 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 
       <article class="project">
         <div>
-          <p class="stack">Machine learning in Python: pandas, scikit-learn, SciPy</p>
+          <p class="stack">Marketing machine learning in Python: pandas, scikit-learn, SciPy, Streamlit</p>
           <h3>Which customers will not order again in the next 90 days?</h3>
           <p class="answer">The simplest full model wins: logistic regression reaches ROC AUC 0.83 on a later period, 0.034 above a recency-only baseline. 97&nbsp;% of the highest-risk tenth churn, against 17&nbsp;% of the lowest.</p>
           <ul>
             <li>Leakage-safe snapshots: features are built only from data available on the snapshot date</li>
             <li>Hypothesis tests with Holm correction and K-Means segments before any model is fitted</li>
-            <li>A tested, installable Python package with 20 tests and continuous integration</li>
+            <li>Streamlit decision simulator: choose the contact threshold under stated cost assumptions and see expected against observed value</li>
+            <li>A tested, installable Python package with 31 tests and continuous integration</li>
           </ul>
           <div class="links">
             <a href="https://github.com/mhmmdhaghjoo/customer-churn-ml-pipeline">Code on GitHub</a>
+            <a href="https://github.com/mhmmdhaghjoo/customer-churn-ml-pipeline#decision-simulator-streamlit">Decision simulator</a>
           </div>
         </div>
         <figure>
@@ -344,47 +352,60 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
   <section class="section" id="experience" aria-labelledby="experience-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="experience-title">Experience and education</h2>
-        <p>More than ten years with databases and reporting, five of them full-time, now studying for a master's degree in Germany.</p>
+        <h2 id="experience-title">Experience</h2>
+        <p>More than ten years with databases and reporting, five of them full-time.</p>
       </div>
-      <div class="timeline">
+      <div class="timeline single">
         <div>
-          <h3>Experience</h3>
           <ol>
             <li>
               <span class="when">08/2020 – 10/2025, full-time</span>
-              <h4>Information Systems Specialist (Databases, Reporting and Data Integration)</h4>
+              <h4>Information Systems Specialist — databases, reporting and data integration</h4>
               <p class="where">Shiraz Petrochemical Co., Tehran, Iran</p>
               <p class="detail">Designed and administered the company's PostgreSQL databases, wrote SQL queries and recurring reports for the departments, integrated data between enterprise systems through ETL routines, and analysed operational data in R.</p>
             </li>
             <li>
               <span class="when">01/2014 – 06/2020, part-time alongside studies</span>
-              <h4>Information Technology Specialist (Database Administration and Reporting)</h4>
+              <h4>Information Technology Specialist — database administration and reporting</h4>
               <p class="where">Tankerranan Petroleum Transport Company, Rafsanjan, Iran</p>
               <p class="detail">Administered and optimised PostgreSQL databases, wrote SQL reports on operational data and contributed to internal tools in Python.</p>
             </li>
           </ol>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education" aria-labelledby="education-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="education-title">Education &amp; Selected Courses</h2>
+        <p>A master's degree in information systems in Germany, after an MBA and a degree in software engineering.</p>
+      </div>
+      <div class="timeline">
         <div>
-          <h3>Education</h3>
           <ol>
             <li>
               <span class="when">10/2025 – present</span>
               <h4>M.Sc. International Information Systems</h4>
               <p class="where">FAU Erlangen-Nürnberg, Nürnberg</p>
-              <p class="detail">Knowledge Discovery in Databases, Pattern Recognition, People Analytics, Experimental Behavioral Research in Data Science, AI Assistance in the Data Science Value Chain.</p>
+              <p class="detail">Data Science: Foundations, Tools, Applications in Socio-Economics and Marketing; Knowledge Discovery in Databases; Pattern Recognition; People Analytics; Experimental Behavioral Research in Data Science; AI Assistance in the Data Science Value Chain (seminar); Introduction to Software Engineering; Free and Open Source Software; Designing Technology; Business Strategy.</p>
             </li>
             <li>
               <span class="when">09/2021 – 02/2024</span>
-              <h4>MBA, Strategic Management</h4>
+              <h4>Master of Business Administration (MBA), Strategic Management</h4>
               <p class="where">Allameh Tabataba'i University, Tehran</p>
-              <p class="detail">Grade 19.38 of 20 (German equivalent approx. 1.2), alongside full-time work. Thesis on big data analytics capabilities in online retail.</p>
+              <p class="detail">Grade 19.38 of 20 (German equivalent approx. 1.2), alongside full-time work. Statistical Analysis and Quantitative Methods, Advanced Research Methodology, Consumer Behavior Management, Advanced Marketing and Market Management, Advanced Human Resource Management. Thesis on big data analytics capabilities in online retail.</p>
             </li>
+          </ol>
+        </div>
+        <div>
+          <ol>
             <li>
               <span class="when">10/2013 – 07/2020</span>
               <h4>B.Sc. Computer Engineering (Software Engineering)</h4>
               <p class="where">Islamic Azad University, Central Tehran Branch</p>
-              <p class="detail">Database design, statistics and probability, algorithms and software engineering.</p>
+              <p class="detail">Principles of Database Design, Engineering Statistics and Probability, Artificial Intelligence, Data Structures, Algorithm Design, Software Engineering I and II.</p>
             </li>
           </ol>
         </div>
@@ -402,9 +423,9 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
         <div><dt>Languages and querying</dt><dd>SQL (PostgreSQL), Python (pandas, NumPy, SciPy, scikit-learn), R (tidyverse, ggplot2, rstanarm)</dd></div>
         <div><dt>Data management</dt><dd>Data modelling, star schema, ETL, data-quality checks, indexing and query optimisation</dd></div>
         <div><dt>Statistics</dt><dd>Hypothesis testing, A/B testing and experiment design, regression including Bayesian, survival analysis</dd></div>
-        <div><dt>Machine learning</dt><dd>Classification, clustering, out-of-time evaluation, fairness audits</dd></div>
-        <div><dt>Reporting</dt><dd>Management reports, data visualisation (Matplotlib, Seaborn, Plotly, ggplot2), R Markdown, SQL reporting</dd></div>
-        <div><dt>Engineering</dt><dd>Git, GitHub Actions, pytest, testthat</dd></div>
+        <div><dt>Machine learning</dt><dd>Classification, clustering, out-of-time evaluation, probability calibration, fairness audits</dd></div>
+        <div><dt>Decision apps and reporting</dt><dd>Streamlit, Shiny, management reports, data visualisation (Matplotlib, ggplot2), R Markdown, SQL reporting</dd></div>
+        <div><dt>Engineering</dt><dd>Git, GitHub Actions, pytest, testthat, ruff, lintr; basic Docker</dd></div>
       </dl>
       <p class="languages"><strong>Languages:</strong> Persian (native), English (C1, IELTS Academic 7.5), German (A2, improving), Turkish (intermediate).</p>
     </div>
@@ -413,7 +434,7 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; }
 
 <footer class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
-    <h2 id="contact-title">Looking for a working student in data analytics?</h2>
+    <h2 id="contact-title">Looking for a working student in marketing or people analytics?</h2>
     <p>I am available from December 2026 for up to 20 hours per week during the semester, in Nürnberg, Erlangen, Munich or hybrid.</p>
     <div class="actions">
       <a class="btn primary" href="mailto:mohammad.haghjoo@fau.de">mohammad.haghjoo@fau.de</a>
